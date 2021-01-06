@@ -1,6 +1,6 @@
 import Vue from "vue";
 import render from "./render.js";
-import './index.less'
+import './index.scss'
 import { registerMicroApps, setDefaultMountApp, start, initGlobalState } from 'qiankun';
 
 Vue.config.productionTip = false;

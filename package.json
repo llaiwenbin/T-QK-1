@@ -8,8 +8,8 @@
     "project:start": "npm-run-all --parallel start:*",
     "install:main": "cd src/main && npm i",
     "install:vue": "cd src/vue && npm i",
-    "start:main": "cd src/main && npm run dev",
-    "start:vue": "cd src/vue && npm run dev",
+    "start:main": "cd src/main && npm run serve",
+    "start:vue": "cd src/vue && npm run serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

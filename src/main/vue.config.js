@@ -23,7 +23,7 @@ module.exports = {
     indexPath: '/',
 
     // To make lint errors show up in the browser overlay
-    lintOnSave: 'error',
+    // lintOnSave: 'error',
 
     // 生产环境的 source map
     productionSourceMap: false,
@@ -41,10 +41,10 @@ module.exports = {
             }
         },
         // display both warnings and errors on the browser overlay
-        overlay: {
-            warnings: true,
-            errors: true
-        },
+        // overlay: {
+        //     warnings: true,
+        //     errors: true
+        // },
         // 自动打开默认浏览器
         open: true,
     },

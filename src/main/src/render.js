@@ -1,4 +1,5 @@
 
+import Vue from 'vue/dist/vue.esm';
 let app = null;
 function vueRender({ loading }) {
     return new Vue({

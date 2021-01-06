@@ -1,3 +1,10 @@
+const path = require('path');
+const { name } = require('./package');
+
+function resolve(dir) {
+  return path.join(__dirname, dir);
+}
+const packageName = require('./package.json').name;
 const PORT = 7001;
 
 module.exports = {
@@ -14,7 +21,7 @@ module.exports = {
     indexPath: '/',
 
     // To make lint errors show up in the browser overlay
-    lintOnSave: 'error',
+    // lintOnSave: 'error',
 
     // 生产环境的 source map
     productionSourceMap: false,
@@ -23,21 +30,39 @@ module.exports = {
     devServer: {
         // 指定本地代理端口号
         port: PORT,
+        disableHostCheck: true,
         // 自动代理到指定服务器
-        proxy: {
-            '/new': {
-                target: 'http://localhost',
-                ws: true,
-                changeOrigin: true,
-            }
+        // proxy: {
+        //     '/new': {
+        //         target: 'http://localhost',
+        //         ws: true,
+        //         changeOrigin: true,
+        //     }
+        // },
+        headers: {
+            'Access-Control-Allow-Origin': '*',
         },
         // display both warnings and errors on the browser overlay
-        overlay: {
-            warnings: true,
-            errors: true
-        },
+        // overlay: {
+        //     warnings: true,
+        //     errors: true
+        // },
         // 自动打开默认浏览器
-        open: true,
+        open: false,
+    },
+    // 自定义webpack配置
+    configureWebpack: {
+        resolve: {
+            alias: {
+                '@': resolve('src'),
+            },
+        },
+        output: {
+            // 把子应用打包成 umd 库格式
+            library: `${name}-[name]`,
+            libraryTarget: 'umd',
+            jsonpFunction: `webpackJsonp_${name}`,
+        },
     },
 };
 
