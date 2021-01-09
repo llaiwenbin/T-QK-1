@@ -25,7 +25,9 @@ module.exports = {
 
     // 生产环境的 source map
     productionSourceMap: false,
-
+    
+    // To make lint errors show up in the browser overlay
+    lintOnSave: false,//error
     // 开发模式
     devServer: {
         // 指定本地代理端口号
@@ -39,14 +41,15 @@ module.exports = {
         //         changeOrigin: true,
         //     }
         // },
+        // To make lint errors show up in the browser overlay
         headers: {
             'Access-Control-Allow-Origin': '*',
         },
         // display both warnings and errors on the browser overlay
-        // overlay: {
-        //     warnings: true,
-        //     errors: true
-        // },
+        overlay: {
+            warnings: false,
+            errors: false
+        },
         // 自动打开默认浏览器
         open: false,
     },
