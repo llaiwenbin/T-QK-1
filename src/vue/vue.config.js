@@ -61,6 +61,7 @@ module.exports = {
             },
         },
         output: {
+            // 这里name修改居然主页面还是能找到子页面？但是packageName修改就不行
             // 把子应用打包成 umd 库格式
             library: `${name}-[name]`,
             libraryTarget: 'umd',
