@@ -20,6 +20,13 @@ export async function bootstrap() {
 export async function mount(props) {
   console.log('[vue] props from main framework', props);
   vueRender(props);
+  // props.onGlobalStateChange((state,prev) => {
+  //   console.log('current:' ,state,'prev:', prev);
+  // })
+  // 子主页只能修改初始化过的数据
+  props.setGlobalState({
+    name:123
+  });
 }
 
 export async function unmount() {

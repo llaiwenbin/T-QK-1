@@ -27,7 +27,12 @@ registerMicroApps([{
 const actions = initGlobalState({
   name: 'main'
 })
-console.log(actions);
+actions.onGlobalStateChange((state,prev) => {
+  console.log('current:' ,state,'prev:', prev);
+})
+actions.setGlobalState({
+  newName:1
+});
 
 // STEP4:设置默认url
 setDefaultMountApp('/vue');
